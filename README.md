@@ -1,0 +1,4 @@
+### Termux.com
+
+This repo publishes the mirror for [termux.github.io](https://termux.github.io)/[termux.org](https://termux.org) at [termux.com](https://termux.com). This is done by syncing [`termux/termux.github.io/master` branch](https://github.com/termux/termux.github.io/tree/master) with [`termux/termux.com/master` branch](https://github.com/termux/termux.com/tree/master), except the [`CNAME`](https://github.com/termux/termux.com/blob/termux.github.io/CNAME) file, which **must** always be set to `termux.com`. When a `push` is done on `termux/termux.github.io` repo `master` branch, then [`termux/termux.github.io/trigger_termux_com_sync` workflow](https://github.com/termux/termux.github.io/blob/master/.github/workflows/trigger_termux_com_sync.yml) will automatically trigger a sync by dispatching the [`termux/termux.com/sync_termux_com` workflow](https://github.com/termux/termux.com/blob/control/.github/workflows/sync_termux_com.yml) workflow.
+##
