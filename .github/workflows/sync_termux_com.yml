@@ -1,0 +1,36 @@
+name: Sync termux.com
+
+on:
+  workflow_dispatch:
+
+jobs:
+  sync-termux-com:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Clone repository
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.SYNC_TERMUX_COM_TOKEN }}
+      - name: Sync termux.com
+        if: github.repository == 'termux/termux.com'
+        run: |
+                git config --global user.name 'agnostic-apollo'
+                git config --global user.email 'agnosticapollo@gmail.com'
+
+                # Add termux/termux.github.io as upstrem and fetch it
+                echo "Adding upstream"
+                git remote add upstream https://github.com/termux/termux.github.io.git
+                git fetch upstream
+
+                # Switch to mirror branch
+                echo "Checking out mirror branch"
+                git checkout mirror
+
+                # Rebase upstream/master over mirror branch and keep CNAME(termux.com) file
+                echo "Rebase upstream/master"
+                git rebase --strategy-option=theirs upstream/master
+
+                # Push branch
+                echo "Pushing mirror branch"
+                git push -f origin mirror
