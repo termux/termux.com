@@ -20,6 +20,9 @@ no_add_title_heading: true
 
     .fade-out { opacity: 0; transition: opacity 1s; }
     .fade-in { opacity: 1; transition: opacity 1s; }
+
+    .sponsors-table, .sponsors-item { background-color: #fdfdfd !important; border: none !important; margin: auto !important; }
+    .sponsors-table { border-collapse: collapse !important; text-align: center !important; }
   </style>
 </header>
 
@@ -59,6 +62,23 @@ no_add_title_heading: true
 
   <p><strong class="first">{%- include t.html key="views.home.features.tinkerable.title" -%}</strong>
   {% include t.html key="views.home.features.tinkerable.description" %}</p>
+
+
+
+
+<h1 style="font-size: 40px; margin-top: 100px; text-align: center; border-bottom: none !important; text-decoration: none !important; list-style: none !important;">Sponsors and Funders</h1>
+
+<table class="sponsors-table">
+  <tr class="sponsors-item">
+    <td class="sponsors-item" style="padding-left: 20% !important;">
+      <a href="https://github.com">
+        <img alt="GitHub Accelerator" width="75%" src="/assets/sponsors/github.png" />
+      </a>
+      <br>
+      <i><a href="https://github.com/accelerator">GitHub Accelerator</a> (<a href="https://github.blog/2023-04-12-github-accelerator-our-first-cohort-and-whats-next">1</a>)</i>
+    </td>
+  </tr>
+</table>
 
   <div class="badges">
   <a href="https://www.hetzner.com/cloud"> 
